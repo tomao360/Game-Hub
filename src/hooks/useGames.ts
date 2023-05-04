@@ -1,3 +1,4 @@
+import { GameQuery } from "../App";
 import useData from "./useData";
 import { Genre } from "./useGenres";
 
@@ -15,21 +16,18 @@ export interface Game {
   metacritic: number;
 }
 
-// The useGames hook passes the selectedGenre and the selectedPlatform as a query string parameter to the useData hook - params object we sending to the server
+// The useGames hook passes the gameQuuery as a query string parameter to the useData hook - params object we sending to the server
 // We also pass an array of dependencies, so if any of the dependencies changes, our effect will rerun and refresh the data from the server
-const useGames = (
-  selectedGenre: Genre | null,
-  selectedPlatform: Platform | null
-) =>
+const useGames = (gameQuuery: GameQuery) =>
   useData<Game>(
     "/games",
     {
       params: {
-        genres: selectedGenre?.id,
-        parent_platforms: selectedPlatform?.id,
+        genres: gameQuuery.genre?.id,
+        parent_platforms: gameQuuery.platform?.id,
       },
     },
-    [selectedGenre?.id, selectedPlatform?.id]
+    [gameQuuery]
   ); // The params is one of the properties of AxiosRequestConfig object
 
 export default useGames;
