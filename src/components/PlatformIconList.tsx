@@ -40,7 +40,7 @@ const PlatformIconList = ({ platforms }: PlatformIconListProps) => {
     // The deafult space in chakra is 4px => 1=4px
     <HStack marginY={1}>
       {platforms.map((platform) => (
-        <Icon as={iconMap[platform.slug]} color="gray.500" />
+        <Icon key={platform.id} as={iconMap[platform.slug]} color="gray.500" />
       ))}
     </HStack>
   );
