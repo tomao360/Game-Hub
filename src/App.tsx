@@ -27,7 +27,7 @@ function App() {
       }}
       templateColumns={{
         base: "1fr", // Means 1 fraction, so our column stretches and takes up all the available space
-        lg: "250px 1fr", // 2 columns - the first going to be 200px, the second coulmn (where we have our grid) is gpong to stretch and take up all the available space
+        lg: "200px 1fr", // 2 columns - the first going to be 200px, the second coulmn (where we have our grid) is gpong to stretch and take up all the available space
       }}
     >
       <GridItem area={"nav"}>
