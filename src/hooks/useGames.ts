@@ -14,6 +14,7 @@ export interface Game {
   background_image: string;
   parent_platforms: { platform: Platform }[]; // Array of objects, where each object has a property called platform of type Platform
   metacritic: number;
+  rating_top: number;
 }
 
 // The useGames hook passes the gameQuuery as a query string parameter to the useData hook - params object we sending to the server
